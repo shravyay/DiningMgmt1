@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+
+
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        <!-- Custom styles for this template -->
+        <link href="css/custom.css" rel="stylesheet"/>
+        <link href="css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+
+
+
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+        <link id="bsdp-css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css"/>
+
+        <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
+
+
+
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="javascripts/bootstrap-timepicker.js"></script>
+        
+<script type="text/javascript">
+            $(function () {
+                $('#sandbox-container input').datepicker({
+                     format: 'yyyy-mm-dd'
+                });
+                function hideAndShowItems(){
+                    if($("#typeOfMeal").val()==="breakfast"){
+                        $('[id^=breakfast]').removeClass("hideMe");
+                        $('[id^=breakfast]').removeAttr("disabled");
+                        
+                        $('[id^=lunch]').addClass("hideMe");
+                        $('[id^=lunch]').attr('disabled', 'disabled');
+
+                        $('[id^=dinner]').addClass("hideMe");
+                        $('[id^=dinner]').attr('disabled', 'disabled');
+
+                    } else if($("#typeOfMeal").val()==="lunch"){
+                         $('[id^=breakfast]').addClass("hideMe");
+                         $('[id^=breakfast]').attr('disabled', 'disabled');
+                         
+                        $('[id^=lunch]').removeClass("hideMe");
+                        $('[id^=lunch]').removeAttr("disabled");
+                        
+                        $('[id^=dinner]').addClass("hideMe");
+                        $('[id^=dinner]').attr('disabled', 'disabled');
+                    }else if($("#typeOfMeal").val()==="dinner"){
+                         $('[id^=breakfast]').addClass("hideMe");
+                         $('[id^=breakfast]').attr('disabled', 'disabled');
+                         
+                        $('[id^=lunch]').addClass("hideMe");
+                        $('[id^=lunch]').attr('disabled', 'disabled');
+                        
+                        $('[id^=dinner]').removeClass("hideMe");
+                        $('[id^=dinner]').removeAttr("disabled");
+                    }
+                }
+               
+               $("#typeOfMeal").on("change",hideAndShowItems);
+
+
+            });
+        </script>
+</head>
+<body>
+
+                <form role="form" th:action="@{/menu}" th:object="${menu}" th:method="post">
+    <div th:include="fragments/supervisor_header::supervisor_head"></div>
+<div class="bg-faded p-4 my-4">
+        <div class="container">
+
+          <div class="col-xs-12 text-xs-center">
+                    <h3 class="mbr-section-title display-2">MENU</h3>
+                    <small class="mbr-section-subtitle"></small>
+                </div>
+            
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group" id="sandbox-container">
+                                    <label class="form-control-label" for="form1-4-name">Date<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="name" required="" data-form-field="Name" th:field="*{date}"/>
+                                </div>
+                            </div>
+                        </div>
+            
+              <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Type Of Meal<span class="form-asterisk">*</span></label>
+                                    <select required="" id="typeOfMeal" class="form-control" th:field="*{typeOfMeal}">
+                                    <option value="breakfast">Breakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            <div id="breakfast1" class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 1<span class="form-asterisk">*</span></label>
+                                    <select id="breakfast1select" class="form-control" th:field="*{item1}">
+                                    <option value="Cereal and milk">Cereal and milk</option>
+                                    <option value="Omlete">Omlete</option>
+                                    <option value="Veggie Sub">Veggie Sub</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+             <div id="lunch1" class="row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 1<span class="form-asterisk">*</span></label>
+                                    <select id="lunch1select" class="form-control" disabled="disabled" th:field="*{item1}">
+                                    <option value="Cheese Pizza">Cheese Pizza</option>
+                                    <option value="Taco">Taco</option>
+                                    <option value="Chicken Sandwich">Chicken Sandwich</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            <div id="dinner1" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 1<span class="form-asterisk">*</span></label>
+                                    <select id="dinner1select" class="form-control" disabled="disabled" th:field="*{item1}">
+                                    <option value="Rice n Beans">Rice n Beans</option>
+                                    <option value="Fried Rice">Fried Rice</option>
+                                    <option value="Chicken Chilli">Chicken Chilli</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            
+            
+            
+            
+            
+             <div id="breakfast2" class=" row row-sm-offset ">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 2<span class="form-asterisk">*</span></label>
+                                    <select id="breakfast2select" class="form-control" th:field="*{item2}">
+                                    <option value="Apple">Apple</option>
+                                    <option value="Orange">Orange</option>
+                                    <option value="Berries">Berries</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+             <div id="lunch2" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 2<span class="form-asterisk">*</span></label>
+                                    <select id="lunch2select" class="form-control" disabled="disabled" th:field="*{item2}">
+                                    <option value="Soup">Soup</option>
+                                    <option value="Pasta">Pasta</option>
+                                    <option value="Chicken Sandwich">Chicken Sandwich</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            <div id="dinner2" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 2<span class="form-asterisk">*</span></label>
+                                    <select id="dinner2select" disabled="disabled" class="form-control" th:field="*{item2}">
+                                    <option value="Spagetti and bacon strips">Spagetti and bacon strips</option>
+                                    <option value="Veggie Quesdilla">Veggie Quesdilla</option>
+                                    <option value="Chicken Chilli">Chicken Chilli</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            
+            <div id="breakfast3" class=" row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 3<span class="form-asterisk">*</span></label>
+                                    <select id="breakfast3select" class="form-control" th:field="*{item3}">
+                                    <option value="Eggs">Eggs</option>
+                                    <option value="Oatmeal">Oatmeal</option>
+                                    <option value="Fruit Juice">Fruit Juice</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+             <div id="lunch3" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 3<span class="form-asterisk">*</span></label>
+                                    <select id="lunch2select" disabled="disabled" class="form-control" th:field="*{item3}">
+                                    <option value="Salad">Salad</option>
+                                    <option value="Ceasar Salad">Ceasar Salad</option>
+                                    <option value="Chicken Salad">Chicken Salad</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            <div id="dinner3" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 3<span class="form-asterisk">*</span></label>
+                                    <select id="dinner2select" disabled="disabled" class="form-control" th:field="*{item3}">
+                                    <option value="Brocolli Noodle">Brocolli Noodle</option>
+                                    <option value="Peporini Pizza">Peporini Pizza</option>
+                                    <option value="Veggie Pizza">Veggie Pizza</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            <div id="breakfast4" class=" row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 4<span class="form-asterisk">*</span></label>
+                                    <select id="breakfast4select" class="form-control" th:field="*{item4}">
+                                    <option value="Muffins">Muffin</option>
+                                    <option value="Bagel">Bagel</option>
+                                    <option value="Doughnut">Doughnut</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+             <div id="lunch4" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 4<span class="form-asterisk">*</span></label>
+                                    <select id="lunch4select" disabled="disabled" class="form-control" th:field="*{item4}">
+                                    <option value="Breadsticks">Breadsticks</option>
+                                    <option value="Garlic Bread">Garlic Bread</option>
+                                    <option value="Cinnamon sticks">Cinnamon Sticks</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            <div id="dinner4" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 4<span class="form-asterisk">*</span></label>
+                                    <select id="dinner4select" disabled="disabled" class="form-control" th:field="*{item4}">
+                                    <option value="Milkshake">Milkshake</option>
+                                    <option value="Burrito Bowl">Burrito Bowl</option>
+                                    <option value="Mozarella Sandwich">Mozarella Sandwich</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            <div id="breakfast5" class=" row row-sm-offset ">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 5<span class="form-asterisk">*</span></label>
+                                    <select id="breakfast5select"  class="form-control" th:field="*{item5}">
+                                    <option value="Pancakes">Pancakes</option>
+                                    <option value="Scrambled Eggs">Scrambled Egg</option>
+                                    <option value="French Toast">French Toast</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+             <div id="lunch5" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 5<span class="form-asterisk">*</span></label>
+                                    <select id="lunch5select" disabled="disabled" class="form-control" th:field="*{item5}">
+                                    <option value="Chicken Noodle Soup">Chicken Noodle Soup</option>
+                                    <option value="Garlic rice">Garlic Rice</option>
+                                    <option value="Guacamole and chips">Guacamole and chips</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            <div id="dinner5" class=" row row-sm-offset hideMe">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item 5<span class="form-asterisk">*</span></label>
+                                    <select id="dinner5select" disabled="disabled" class="form-control" th:field="*{item5}">
+                                    <option value="Mac and cheese">Mac and cheese</option>
+                                    <option value="Chicken nuggets">Chicken nuggets</option>
+                                    <option value="Steak Burger">Steak Burger</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            
+            
+                 
+               
+                 
+                        
+            
+          
+            
+            <div class="row row-sm-offset">
+
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                  
+                                   <button type="submit" class="btn btn-primary"><span class="btn-text">SUBMIT</span><i class="btn-loader"></i></button>
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                        </div>
+            
+
+        </div>
+</div>
+                </form>
+
+
+
+
+
+  </body>
+</html>

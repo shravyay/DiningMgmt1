@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+
+
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+
+        <!-- Custom styles for this template -->
+        <link href="css/custom.css" rel="stylesheet"/>
+
+    </head>
+    <body>
+
+        <form role="form" th:action="@{/payroll}" th:object="${payrolls}" th:method="get">
+
+            <!-- Navigation -->
+            <div th:include="fragments/manager_header::manager_head"></div>
+            <div class="bg-faded p-4 my-4">
+                <div class="container">
+                    <div class="col-xs-12 text-xs-center">
+                        <h3 class="mbr-section-title display-4">PAYROLL</h3>
+                        <small class="mbr-section-subtitle"></small>
+                    </div>
+
+                    
+                     <div class="row row-sm-offset">
+                            <div class="col-xs-12">  
+                                
+                                   
+
+                                
+                                
+                     <table class="table table-bordered table-striped">
+                        
+    <thead>
+      <tr>
+        <th>PayrollId</th>
+          <th>EmployeeName</th>
+        <th>PayPerHour</th>
+        <th>WorkingHours</th> 
+    <th>TotalPay</th>
+             <th>Status</th>
+    <tbody>
+      
+       
+        <tr th:each="payroll :${payrolls}">
+            <td th:text="${payroll.payrollId}"/>
+         <td th:text="${payroll.employeeName}"/>
+         <td th:text="${payroll.payPerHour}"/>
+         <td th:text="${payroll.workingHours}"/>
+        <td th:text="${payroll.totalPay}"/>
+        <td th:text="${payroll.status}"/>
+     
+      </tr>
+    </tbody>
+             
+      </tr>
+    </thead>
+   
+  </table>
+                            </div>
+                     </div>
+                    
+                    
+                    <div class="row row-sm-offset">
+
+                        <div class="col-xs-12">
+                            <div class="form-group">
+
+                                <button type="submit" class="btn btn-primary"><span class="btn-text">Add Payroll</span><i class="btn-loader"></i></button>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </form>
+        <div th:include="fragments/footer::foot"></div>
+    </body>
+</html>

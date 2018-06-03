@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+    
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+
+
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="css/custom.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+                <form role="form" th:action="@{/customize}" th:object="${customize}" th:method="post">
+    <div th:include="fragments/student_header::student_head"></div>
+<div class="bg-faded p-4 my-4">
+        <div class="container">
+
+          <div class="col-xs-12 text-xs-center">
+                    <h3 class="mbr-section-title display-2">CUSTOMIZED</h3>
+                    <small class="mbr-section-subtitle"></small>
+                </div>
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Student Id<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="name" disabled="disabled" required="" data-form-field="Name" th:value="*{studentId}"/>
+                                    <input type="hidden" th:field="*{studentId}" />
+                                </div>
+                            </div>
+                        </div>
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Student Name<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="name" disabled="disabled" required="" data-form-field="Name" th:value="*{studentName}"/>
+                                    <input type="hidden" th:field="*{studentName}" />
+                                </div>
+                            </div>
+                        </div>
+                 <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item<span class="form-asterisk">*</span></label>
+                                    <select id="dinner5select" class="form-control" th:field="*{item}">
+                                    <option value="Cereal and milk">Cereal and milk</option>
+                                    <option value="Omlete">Omlete</option>
+                                    <option value="Veggie Sub">Veggie Sub</option>
+                                    <option value="Cheese Pizza">Cheese Pizza</option>
+                                    <option value="Taco">Taco</option>
+                                    <option value="Chicken Sandwich">Chicken Sandwich</option>
+                                    <option value="Rice and Beans">Rice and Beans</option>
+                                    <option value="Fried rice">Fried rice</option>
+                                    <option value="Chicken Chilli">Chicken Chilli</option>
+                                    <option value="Apple">Apple</option>
+                                    <option value="Orange">Orange</option>
+                                    <option value="Berries">Berries</option>
+                                    <option value="Soup">Soup</option>
+                                    <option value="Pasta">Pasta</option>
+                                    <option value="Spaghetti and bacon strips">Spaghetti and bacon strips</option>
+                                    <option value="Veggie Quesidilla">Veggie Quesidilla</option>
+                                    <option value="Eggs">Eggs</option>
+                                    <option value="Oatmeal">Oatmeal</option>
+                                    <option value="Fruit Juice">Fruit Juice</option>
+                                    <option value="Salad">Salad</option>
+                                    <option value="Ceasar Salad">Ceasar Salad</option>
+                                    <option value="Chicken salad">Chicken salad</option>
+                                    <option value="Brocolli Noodle">Brocolli Noodle</option>
+                                    <option value="Peporini Pizza">Peporini Pizza</option>
+                                    <option value="Veggie pizza">Veggie pizza</option>
+                                    <option value="Muffins">Muffins</option>
+                                    <option value="Bagel">Bagel</option>
+                                    <option value="Doughnut">Doughnut</option>
+                                    <option value="Bread sticks">Bread sticks</option>
+                                    <option value="Garlic bread">Garlic bread</option>
+                                    <option value="Cinnamon sticks">Cinnamon sticks</option>
+                                    <option value="Milkshake">Milkshake</option>
+                                    <option value="Burrito Bowl">Burrito Bowl</option>
+                                    <option value="Mozarella sandwich">Mozarella sandwich</option>
+                                    <option value="Pancakes">Pancakes</option>
+                                    <option value="Scrambled eggs">Scrambled eggs</option>
+                                    <option value="French toast">French toast</option>
+                                    <option value="Chicken Noodle Soup">Chicken Noodle Soup</option>
+                                    <option value="Garlic rice">Garlic rice</option>
+                                    <option value="Guacmole and chips">Guacmole and chips</option>
+                                    <option value="Mac and cheese">Mac and cheese</option>
+                                    <option value="Chicken nuggets">Chicken nuggets</option>
+                                    <option value="Steak Burger">Steak Burger</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Day Of Special<span class="form-asterisk">*</span></label>
+                                    <select id="dinner5select" class="form-control" th:field="*{dayOfSpecial}">
+                                    <option value="Monday">Monday</option>
+                                    <option value="Tuesday">Tuesday</option>
+                                    <option value="Wednesday">Wednesday</option>
+                                    <option value="Thursday">Thursday</option>
+                                    <option value="Friday">Friday</option>
+                                    <option value="Saturday">Saturday</option>
+                                    <option value="Sunday">Sunday</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                
+                
+            <div class="row row-sm-offset">
+
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                  
+                                   <button type="submit" class="btn btn-primary"><span class="btn-text">SUBMIT</span><i class="btn-loader"></i></button>
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                        </div>
+            
+
+        </div>
+</div>
+                </form>
+
+
+
+
+
+  </body>
+</html>

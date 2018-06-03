@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+
+   
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+
+
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+
+    <!-- Custom styles for this template -->
+    <link href="css/custom.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+                <form role="form" th:action="@{/login}" th:method="post">
+    
+<div class="bg-faded p-4 my-4">
+        <div class="container">
+
+          <div class="col-xs-12 text-xs-center">
+                    <h3 class="mbr-section-title display-2">LOGIN</h3>
+                    <small class="mbr-section-subtitle"></small>
+                </div>
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Username<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="username" required="" data-form-field="Name" />
+                                </div>
+                            </div>
+                        </div>
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Password<span class="form-asterisk">*</span></label>
+                                    <input type="password" class="form-control" name="password" required="" data-form-field="Name"/>
+                                </div>
+                            </div>
+                        </div>
+            
+               
+                    
+                
+                        </div>
+                 
+            <div class="row row-sm-offset">
+
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                  
+                                    <button type="submit" class="btn btn-primary">Login</button>
+                          
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                        </div>
+            
+
+        </div>
+
+                </form>
+
+
+
+
+
+  </body>
+</html>

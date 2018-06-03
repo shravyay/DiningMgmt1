@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+
+
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+
+        <!-- Custom styles for this template -->
+        <link href="css/custom.css" rel="stylesheet"/>
+
+    </head>
+    <body>
+
+        <form role="form" th:action="@{/menu}" th:object="${menus}" th:method="get">
+
+            <!-- Navigation -->
+            <div th:include="fragments/supervisor_header::supervisor_head"></div>
+            <div class="bg-faded p-4 my-4">
+                <div class="container">
+                    <div class="col-xs-12 text-xs-center">
+                        <h3 class="mbr-section-title display-4">MENUS</h3>
+                        <small class="mbr-section-subtitle"></small>
+                    </div>
+
+                    
+                     <div class="row row-sm-offset">
+                            <div class="col-xs-12">  
+                                
+                                   
+
+                                
+                                
+                     <table class="table table-bordered table-striped">
+                        
+    <thead>
+      <tr>
+          <th>DayId</th>
+          <th>Date</th>
+        <th>Item 1</th>
+        <th>Item 2</th>
+             <th>Item 3</th>
+             <th>Item 4</th>
+             <th>Item 5</th>
+              <th>TypeOfMeal</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+       
+        <tr th:each="menu :${menus}">
+        <td th:text="${menu.dayId}"/>
+        <td th:text="${#dates.format(menu.date,'MM-dd-yyyy')}"/>
+         <td th:text="${menu.item1}"/>
+         <td th:text="${menu.item2}"/>
+        <td th:text="${menu.item3}"/>
+        <td th:text="${menu.item4}"/>
+        <td th:text="${menu.item5}"/>
+        <td th:text="${menu.typeOfMeal}"/>
+     
+      </tr>
+    </tbody>
+  </table>
+                            </div>
+                     </div>
+                    
+                    
+                    <div class="row row-sm-offset">
+
+                        <div class="col-xs-12">
+                            <div class="form-group">
+
+                                <button type="submit" class="btn btn-primary"><span class="btn-text">Add Menu</span><i class="btn-loader"></i></button>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </form>
+        <div th:include="fragments/footer::foot"></div>
+    </body>
+</html>

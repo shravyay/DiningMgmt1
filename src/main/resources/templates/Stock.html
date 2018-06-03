@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta name="description" content=""/>
+        <meta name="author" content=""/>
+
+
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>
+        <!-- Custom styles for this template -->
+        <link href="css/custom.css" rel="stylesheet"/>
+        <link href="css/bootstrap-timepicker.min.css" rel="stylesheet"/>
+
+
+
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"/>
+        <link id="bsdp-css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css"/>
+
+        <link type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-timepicker/0.5.2/css/bootstrap-timepicker.min.css" />
+
+
+
+        <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+        <script type="text/javascript" src="javascripts/bootstrap-timepicker.js"></script>
+        
+<script type="text/javascript">
+    $(function () {
+                $('#sandbox-container input').datepicker({
+                     format: 'yyyy-mm-dd'
+                });
+                
+
+
+            });
+        </script>
+
+</head>
+<body>
+
+                <form role="form" th:action="@{/stock}" th:object="${stock}" th:method="post">
+    <div th:include="fragments/supervisor_header::supervisor_head"></div>
+<div class="bg-faded p-4 my-4">
+        <div class="container">
+
+          <div class="col-xs-12 text-xs-center">
+                    <h3 class="mbr-section-title display-2">STOCK</h3>
+                    <small class="mbr-section-subtitle"></small>
+                </div>
+            
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group" id="sandbox-container">
+                                    <label class="form-control-label" for="form1-4-name">Date<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="name" required="" data-form-field="Name" th:field="*{date}"/>
+                                </div>
+                            </div>
+                        </div>
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Item<span class="form-asterisk">*</span></label>
+                            <select class="form-control" th:field="*{item}">
+                                    <option value="">Select item</option>
+                                    <option value="Rice">Rice</option>
+                                    <option value="Bread">Bread</option>
+                                    <option value="Flour">Flour</option>
+                                    <option value="Milk">Milk</option>
+                                    <option value="Cereal">Cereal</option>
+                                    <option value="Eggs">Eggs</option>
+                                    <option value="Yogurt">Yogurt</option>
+                                    <option value="Chicken">Chicken</option>
+                                    <option value="Beans">Beans</option>
+                                    <option value="Muffins">Muffins</option>
+                                    <option value="Doughnut">Doughnuts</option>
+                                    <option value="Onions">Onions</option>
+                                    <option value="Pasta">Pasta</option>
+                                    <option value="Bread">Bread</option>
+                                    <option value="Sugar">Sugar</option>
+                                    <option value="Tortilla">Tortilla</option>
+                                    <option value="Spaghetti">Spaghetti</option>
+                                    <option value="Burger buns">Burger buns</option>
+
+                            </select>
+                                </div>
+                            </div>
+                        </div>
+            <div class="row row-sm-offset">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="form-control-label" for="form1-4-name">Quantity<span class="form-asterisk">*</span></label>
+                                    <input type="text" class="form-control" name="name" required="" data-form-field="Name" th:field="*{quantity}"/>
+                                </div>
+                            </div>
+                        </div>
+                 
+            <div class="row row-sm-offset">
+
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                  
+                                   <button type="submit" class="btn btn-primary"><span class="btn-text">SUBMIT</span><i class="btn-loader"></i></button>
+                                </div>
+                            </div>
+
+                            
+
+                            
+
+                        </div>
+            
+
+        </div>
+</div>
+                </form>
+
+
+
+
+
+  </body>
+</html>
